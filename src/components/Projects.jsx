@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
+import { Github, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -12,7 +12,7 @@ const Projects = () => {
         const ctx = gsap.context(() => {
             const projects = gsap.utils.toArray('.project-card');
 
-            projects.forEach((project, i) => {
+            projects.forEach((project) => {
                 // Image Reveal
                 gsap.fromTo(project.querySelector('.project-image'),
                     { clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)" },
@@ -77,7 +77,7 @@ const Projects = () => {
     ];
 
     return (
-        <div ref={containerRef} className="min-h-screen pt-24 pb-20 bg-white dark:bg-luxury-black">
+        <div id="projects" ref={containerRef} className="min-h-screen pt-24 pb-20 bg-white dark:bg-luxury-black">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div className="mb-24">
