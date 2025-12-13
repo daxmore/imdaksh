@@ -27,20 +27,6 @@ const Skills = () => {
           }
         }
       );
-
-      // Floating animation for icons
-      gsap.to(".skill-icon", {
-        y: -10,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        stagger: {
-          amount: 1.5,
-          from: "random"
-        }
-      });
-
     }, skillsRef);
 
     return () => ctx.revert();
@@ -108,17 +94,19 @@ const Skills = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 lg:gap-6 auto-rows-fr">
 
           {/* Frontend Development - Large (spans 3 cols, 2 rows) */}
-          <div className="skill-card group relative md:col-span-2 lg:col-span-3 md:row-span-2">
+          <div className="skill-card group relative md:col-span-2 lg:col-span-3">
             <div className={`absolute -inset-0.5 bg-gradient-to-r ${skillCategories[0].gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500`} />
             <div className="relative h-full p-8 bg-white dark:bg-luxury-gray rounded-2xl border border-gray-200 dark:border-gray-800 group-hover:border-transparent transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-cyan-50/30 dark:from-blue-950/20 dark:via-transparent dark:to-cyan-950/10" />
               <div className="relative z-10">
-                <div className={`skill-icon inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${skillCategories[0].gradient} text-white mb-6 shadow-lg`}>
-                  {skillCategories[0].icon}
+                <div>
+                  <div className={`skill-icon inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br ${skillCategories[0].gradient} text-white mb-6 shadow-lg`}>
+                    {skillCategories[0].icon}
+                  </div>
+                  <h3 className="text-2xl font-display font-bold text-luxury-black dark:text-white mb-6">
+                    {skillCategories[0].title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-display font-bold text-luxury-black dark:text-white mb-6">
-                  {skillCategories[0].title}
-                </h3>
                 <div className="flex flex-wrap gap-2">
                   {skillCategories[0].skills.map((skill, idx) => (
                     <span key={idx} className="px-4 py-2 text-sm font-medium bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm text-gray-700 dark:text-gray-300 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 cursor-default">
@@ -131,7 +119,7 @@ const Skills = () => {
           </div>
 
           {/* UI/UX Design - Large (spans 3 cols, 2 rows) */}
-          <div className="skill-card group relative md:col-span-2 lg:col-span-3 md:row-span-2">
+          <div className="skill-card group relative md:col-span-2 lg:col-span-3">
             <div className={`absolute -inset-0.5 bg-gradient-to-r ${skillCategories[1].gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur transition-all duration-500`} />
             <div className="relative h-full p-8 bg-white dark:bg-luxury-gray rounded-2xl border border-gray-200 dark:border-gray-800 group-hover:border-transparent transition-all duration-500 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 via-transparent to-pink-50/30 dark:from-purple-950/20 dark:via-transparent dark:to-pink-950/10" />

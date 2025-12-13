@@ -78,12 +78,10 @@ const Hero = () => {
 
                 {/* Main Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-                    {/* Left Column: Massive Title */}
-                    <div className="lg:col-span-8 space-y-8">
+                    <div className="lg:col-span-12 space-y-8">
                         <div ref={titleRef} className="font-display font-black uppercase leading-[0.85] tracking-tighter mix-blend-difference">
                             <div className="overflow-hidden">
-                                <h1 className="text-[12vw] lg:text-[10vw] hero-text-char">Creative</h1>
+                                <h1 className="text-[12vw] lg:text-[10vw] hero-text-char">Creative Web</h1>
                             </div>
                             <div className="overflow-hidden flex items-center gap-4">
                                 <span className="h-[1px] flex-grow bg-current hero-line"></span>
@@ -94,15 +92,19 @@ const Hero = () => {
                             </div>
                         </div>
 
-                        <div className="flex flex-col md:flex-row gap-8 items-start md:items-center pt-8">
+                        <div className="flex flex-col-reverse md:flex-row gap-8 items-start md:items-center">
                             <Link
                                 to="/projects"
-                                className="group relative px-8 py-4 bg-luxury-black dark:bg-white text-white dark:text-luxury-black rounded-full overflow-hidden hero-meta"
+                                className="btn-multilayer group px-8 py-4 bg-transparent border-2 border-white text-white hover:text-black/90 transition-all duration-150 rounded-full inline-flex items-center gap-2 font-bold tracking-wide hero-meta max-md:text-xs max-md:px-4 max-md:py-2"
                             >
-                                <span className="relative z-10 flex items-center gap-2 font-bold tracking-wide">
-                                    View Selected Works <ArrowRight size={18} />
+                                <span className="layer-1"></span>
+                                <span className="layer-2"></span>
+                                <span className="layer-3"></span>
+
+                                <span className="btn-multilayer-text flex items-center gap-2">
+                                    View Selected Works
+                                    <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform duration-300" />
                                 </span>
-                                <div className="absolute inset-0 bg-accent-600 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></div>
                             </Link>
 
                             <p className="max-w-md text-sm md:text-base font-medium leading-relaxed opacity-80 hero-meta border-l-2 border-accent-500 pl-4">
@@ -111,42 +113,7 @@ const Hero = () => {
                             </p>
                         </div>
                     </div>
-
-                    {/* Right Column: Editorial Image/Visual */}
-                    <div className="lg:col-span-4 relative h-[50vh] lg:h-[70vh] w-full">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-luxury-light dark:to-luxury-black z-10 opacity-20"></div>
-                        <div className="h-full w-full bg-gray-200 dark:bg-gray-800 overflow-hidden hero-image-reveal relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 mix-blend-overlay"></div>
-                            {/* Abstract Geometric Shapes representing 'Code & Art' */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-                            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-accent-500/30 to-transparent hero-parallax"></div>
-
-                            <div className="absolute bottom-8 left-8 right-8 z-20">
-                                <div className="backdrop-blur-md bg-white/10 border border-white/20 p-6 rounded-lg">
-                                    <div className="text-xs font-bold tracking-widest uppercase mb-2 opacity-70">Featured Project</div>
-                                    <div className="text-xl font-display font-bold">Immersive Portfolio</div>
-                                    <div className="mt-4 flex justify-between items-center">
-                                        <span className="text-xs opacity-60">2024 Edition</span>
-                                        <ArrowRight size={16} className="-rotate-45" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-                {/* Footer Meta */}
-                <div className="mt-12 pt-4 border-t border-current flex justify-between items-center hero-line">
-                    <div className="flex gap-8 text-xs font-bold tracking-widest uppercase opacity-60">
-                        <span>[ React ]</span>
-                        <span>[ Tailwind ]</span>
-                        <span>[ GSAP ]</span>
-                    </div>
-                    <div className="animate-bounce">
-                        <ArrowDown size={20} />
-                    </div>
-                </div>
-
             </div>
         </section>
     );

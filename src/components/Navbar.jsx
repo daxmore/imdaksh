@@ -1,10 +1,102 @@
 import { useState, useRef, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Custom Hamburger Menu Component with micro-interactions
+const HamburgerButton = ({ isOpen, onClick }) => {
+    return (
+        <motion.button
+            onClick={onClick}
+            className="relative w-12 h-12 flex items-center justify-center rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 group overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle menu"
+        >
+            {/* Glow effect on hover */}
+            <motion.div
+                className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{
+                    background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%)'
+                }}
+            />
+
+            {/* Animated hamburger lines */}
+            <div className="relative w-6 h-5 flex flex-col items-center gap-[0.3rem] mt-[0.rem]">
+                {/* Top line */}
+                <motion.span
+                    className="block h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full origin-center"
+                    initial={false}
+                    animate={{
+                        width: isOpen ? 24 : 20,
+                        rotate: isOpen ? 45 : 0,
+                        y: isOpen ? 8 : 0,
+                        x: isOpen ? 0 : 2,
+                    }}
+                    transition={{
+                        duration: 0.4,
+                        ease: [0.68, -0.6, 0.32, 1.6],
+                        delay: isOpen ? 0 : 0.1
+                    }}
+                />
+
+                {/* Middle line */}
+                <motion.span
+                    className="block w-6 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full"
+                    initial={false}
+                    animate={{
+                        opacity: isOpen ? 0 : 1,
+                        scaleX: isOpen ? 0 : 1,
+                        x: isOpen ? -20 : 0,
+                    }}
+                    transition={{
+                        duration: 0.3,
+                        ease: 'easeInOut'
+                    }}
+                />
+
+                {/* Bottom line */}
+                <motion.span
+                    className="block h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full origin-center"
+                    initial={false}
+                    animate={{
+                        width: isOpen ? 24 : 16,
+                        rotate: isOpen ? -45 : 0,
+                        y: isOpen ? -8 : 0,
+                        x: isOpen ? 0 : 4,
+                    }}
+                    transition={{
+                        duration: 0.4,
+                        ease: [0.68, -0.6, 0.32, 1.6],
+                        delay: isOpen ? 0.05 : 0.05
+                    }}
+                />
+            </div>
+
+            {/* Ripple effect on click */}
+            <motion.div
+                className="absolute inset-0 rounded-xl bg-indigo-500/20"
+                initial={{ scale: 0, opacity: 1 }}
+                animate={isOpen ? { scale: 2, opacity: 0 } : { scale: 0, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+            />
+        </motion.button>
+    );
+};
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const menuRef = useRef(null);
+
+    // Handle scroll for glass effect
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -66,27 +158,47 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Fixed Header */}
-            <header className="fixed top-0 left-0 right-0 z-[60] bg-transparent">
-                <div className="max-w-[95%] mx-auto py-4 flex items-center justify-between">
-                    {/* Logo */}
-                    <a href="/" className="text-2xl font-display font-bold text-luxury-black dark:text-white">
+            {/* Fixed Header with Glass Effect on Scroll */}
+            <motion.header
+                className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 ${isScrolled
+                    ? 'bg-white/70 dark:bg-gray-950/70 backdrop-blur-xl shadow-lg shadow-black/5 dark:shadow-black/20'
+                    : 'bg-transparent'
+                    }`}
+                initial={{ y: -100 }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+                {/* Subtle gradient overlay for glass effect */}
+                <motion.div
+                    className="absolute inset-0 pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isScrolled ? 1 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)'
+                    }}
+                />
+
+                <div className="relative max-w-[95%] mx-auto py-4 flex items-center justify-between">
+                    {/* Logo with subtle animation */}
+                    <motion.a
+                        href="/"
+                        className="text-2xl font-display font-bold text-luxury-black dark:text-white"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
                         imdaksh<span className="text-blue-600">.</span>
-                    </a>
+                    </motion.a>
 
                     <div className="flex items-center gap-4">
-
-                        {/* Menu Button */}
-                        <button
+                        {/* Custom Hamburger Menu Button */}
+                        <HamburgerButton
+                            isOpen={isOpen}
                             onClick={() => setIsOpen(!isOpen)}
-                            className="p-2.5 text-luxury-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-900 rounded-full transition-colors"
-                            aria-label="Toggle menu"
-                        >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                        />
                     </div>
                 </div>
-            </header>
+            </motion.header>
 
             {/* Navigation Overlay */}
             <AnimatePresence>
@@ -222,8 +334,9 @@ const Navbar = () => {
                             </div>
                         </motion.div>
                     </>
-                )}
-            </AnimatePresence>
+                )
+                }
+            </AnimatePresence >
         </>
     );
 };

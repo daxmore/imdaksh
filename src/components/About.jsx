@@ -125,11 +125,11 @@ const About = () => {
                         {/* Stats Grid */}
                         <div className="grid grid-cols-2 gap-6 about-reveal">
                             <div className="p-6 bg-white dark:bg-luxury-gray rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-blue-500/30 transition-colors group">
-                                <h3 className="text-4xl font-display font-bold text-blue-600 mb-2 group-hover:scale-110 transition-transform origin-left">3+</h3>
+                                <h3 className="text-4xl font-display font-bold text-blue-600 mb-2 transition-transform origin-left">3+</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Years of<br />Experience</p>
                             </div>
                             <div className="p-6 bg-white dark:bg-luxury-gray rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-purple-500/30 transition-colors group">
-                                <h3 className="text-4xl font-display font-bold text-purple-600 mb-2 group-hover:scale-110 transition-transform origin-left">20+</h3>
+                                <h3 className="text-4xl font-display font-bold text-purple-600 mb-2 transition-transform origin-left">20+</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Projects<br />Completed</p>
                             </div>
                         </div>
@@ -152,8 +152,8 @@ const About = () => {
                         {/* Skills / Roles */}
                         <div className="space-y-8 about-reveal">
                             <div className="group">
-                                <div className="flex items-start gap-6 p-6 rounded-2xl hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors duration-300">
-                                    <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-xl text-blue-600 group-hover:scale-110 transition-transform duration-300">
+                                <div className="flex flex-col md:flex-row text-balance items-start gap-6 p-6 rounded-2xl hover:bg-blue-50 dark:hover:bg-blue-900/10 transition-colors duration-300">
+                                    <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-xl text-blue-600  transition-transform duration-300">
                                         <Code className="w-8 h-8" />
                                     </div>
                                     <div>
@@ -169,8 +169,8 @@ const About = () => {
                             </div>
 
                             <div className="group">
-                                <div className="flex items-start gap-6 p-6 rounded-2xl hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors duration-300">
-                                    <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 group-hover:scale-110 transition-transform duration-300">
+                                <div className="flex flex-col md:flex-row text-balance items-start gap-6 p-6 rounded-2xl hover:bg-purple-50 dark:hover:bg-purple-900/10 transition-colors duration-300">
+                                    <div className="p-4 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 transition-transform duration-300">
                                         <Palette className="w-8 h-8" />
                                     </div>
                                     <div>

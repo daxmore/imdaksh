@@ -174,14 +174,14 @@ const SelectedWork = () => {
 
                 {/* Section Header */}
                 <div className="mb-20">
-                    <div className="flex items-center gap-6 mb-8">
+                    <div className="flex items-center gap-6 mb-2 md:mb-8">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-500/30 to-transparent" />
-                        <h1 className="text-5xl md:text-7xl font-display font-bold">
+                        <h1 className="text-5xl text-center md:text-7xl font-display font-bold">
                             Selected Work
                         </h1>
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent via-secondary-500/30 to-transparent" />
                     </div>
-                    <p className="text-center text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <p className="max-sm:px-6 text-center text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                         A curated collection of projects showcasing my expertise in front-end development and UI/UX design
                     </p>
                 </div>
@@ -256,7 +256,7 @@ const SelectedWork = () => {
                                         </div>
 
                                         {/* Project Content */}
-                                        <div className={`work-content p-8 lg:p-12 flex flex-col justify-center ${isLarge && isReversed ? 'lg:order-1' : ''}`}>
+                                        <div className={`work-content p-4 lg:p-12 flex flex-col justify-center ${isLarge && isReversed ? 'lg:order-1' : ''}`}>
 
                                             {/* Category Badge */}
                                             <div className="flex items-center gap-3 mb-6">
@@ -327,7 +327,7 @@ const SelectedWork = () => {
 
                 {/* Bottom CTA */}
                 <div className="mt-32 text-center">
-                    <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10 border border-primary-500/20 dark:border-primary-500/30">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 md:px-8 md:py-4 rounded-full bg-gradient-to-r from-primary-500/10 via-secondary-500/10 to-accent-500/10 border border-primary-500/20 dark:border-primary-500/30">
                         <span className="text-gray-600 dark:text-gray-400">Want to see more?</span>
                         <a
                             href="#contact"
