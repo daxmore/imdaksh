@@ -129,7 +129,7 @@ const About = () => {
                                 <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Years of<br />Experience</p>
                             </div>
                             <div className="p-6 bg-white dark:bg-luxury-gray rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-purple-500/30 transition-colors group">
-                                <h3 className="text-4xl font-display font-bold text-purple-600 mb-2 transition-transform origin-left">20+</h3>
+                                <h3 className="text-4xl font-display font-bold text-purple-600 mb-2 transition-transform origin-left">5+</h3>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">Projects<br />Completed</p>
                             </div>
                         </div>

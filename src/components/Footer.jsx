@@ -51,17 +51,17 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative bg-gray-100 dark:bg-gray-950 pt-8 pb-8">
+        <footer className="relative bg-gray-100 dark:bg-[#111] pt-8 pb-8">
             <div className="max-w-full px-4 sm:px-6">
 
                 {/* CTA Banner */}
-                <div className="mb-8 p-6 md:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="mb-8 p-6 md:p-8 bg-white dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6">
                     <h2 className="text-2xl md:text-3xl font-display font-bold text-luxury-black dark:text-white text-center md:text-left">
-                        Excited? <span className="opacity-60">Us too.</span> Let's get moving.
+                        Excited? <span className="opacity-60 hidden md:block">Us too.</span> Let's get moving.
                     </h2>
                     <a
                         href="#contact"
-                        className="btn-multilayer group inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full font-semibold whitespace-nowrap hover:bg-blue-700 transition-colors"
+                        className="btn-multilayer group inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full font-semibold whitespace-nowrap transition-colors"
                     >
                         <span className="layer-1"></span>
                         <span className="layer-2"></span>
@@ -91,7 +91,7 @@ const Footer = () => {
                     </div>
 
                     {/* Navigation & Info Card */}
-                    <div className="lg:col-span-7 bg-white dark:bg-gray-900 rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
+                    <div className="lg:col-span-7 bg-white dark:bg-[#111] rounded-2xl p-8 border border-gray-200 dark:border-gray-800">
                         {/* Navigation Links */}
                         <div className="flex flex-wrap gap-x-6 gap-y-2 mb-6">
                             {navLinks.map((link) => (
@@ -130,7 +130,7 @@ const Footer = () => {
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="lg:col-span-3 bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 group"
+                            className="lg:col-span-3 bg-white dark:bg-[#111] rounded-2xl p-6 border border-gray-200 dark:border-gray-800 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300 group"
                             aria-label={social.name}
                         >
                             <div className="transform group-hover:scale-110 transition-transform">

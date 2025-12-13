@@ -72,7 +72,7 @@ const Hero = () => {
                     </div>
                     <div className="hero-meta text-right hidden md:block">
                         <span className="block text-xs font-bold tracking-[0.2em] uppercase">Location</span>
-                        <span className="block text-sm font-serif italic">Worldwide / Remote</span>
+                        <span className="block text-sm font-serif italic">Surat</span>
                     </div>
                 </div>
 
